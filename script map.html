@@ -1,0 +1,197 @@
+<html>
+    <head>
+        <title >World Map</title>
+        <style>
+
+            html,body{
+               
+                  background-attachment: fixed;
+                   background-repeat: no-repeat;
+                    background-size: 40.57cm 20cm; 
+      
+        padding: 0;
+        margin: 0;
+        outline: none;
+        font-family: Roboto, Arial, sans-serif;
+        font-size: 14px;
+        
+            }
+
+         
+         
+
+            .search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  height: 36px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  width: 50px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 30%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+          
+            #header{
+                text-align: center;
+               margin: 1%;
+                    background-color: rgba(238, 212, 212, 0.5);
+                 overflow: hidden;
+                color: black;
+                
+                    border-style: ridge;
+                    position: relative;
+                   box-shadow: lightcyan;
+    
+                  
+                   
+            }
+
+           
+
+            #image{
+              
+              background-repeat: no-repeat; 
+          
+             align-items: center;
+             padding-left: 90px;
+
+          }
+                  #cover{
+                      overflow: hidden;
+                  }
+
+        p{
+            text-align: center;
+        }
+         
+
+        </style>
+       
+    </head>
+    <body >
+        <div id="cover">
+            <div id="header">
+                <h1>World Map</h1>
+              
+            </div>
+            <div id="info">
+            <p>Click on United_States,brazil,india,australia and russia in the below given map to get complete information about the countries.<br>
+                After you get the information about the countries, enter the country name in the given input box to get the respective country map.  </p>
+                 <p id="demo"></p>
+           </div>
+            <img id="image_X" src="https://www.worldometers.info/world-map/world-map.jpg"  width="1535px" height="635px" onmousemove="showCoords(event)" usemap="#workmap">
+            <map name="workmap">
+                <area target="_blank" alt="usa" title="usa" href="https://en.wikipedia.org/wiki/United_States" coords="236,127,418,218" shape="rect">
+                <area target="_blank" alt="brazil" title="brazil" href="https://en.wikipedia.org/wiki/Brazil" coords="410,306,588,418" shape="rect">
+                <area target="_blank" alt="australia" title="australia" href="https://en.wikipedia.org/wiki/Australia" coords="1189,370,1365,475" shape="rect">
+                <area target="_blank" alt="india" title="india" href="https://en.wikipedia.org/wiki/India" coords="1024,182,1123,301" shape="rect">
+                <area target="_blank" alt="russia" title="russia" href="https://en.wikipedia.org/wiki/Russia" coords="904,42,1241,129" shape="rect">
+              </map>
+        <div class="wrap">
+            <div class="search">
+               <input list="country" type="text" class="searchTerm" placeholder="Enter the country name..." id="inputIQ" >
+              <datalist id="country">
+                  <option value="usa"></option>
+                  <option value="india"></option>
+                  <option value="australia"></option>
+                  <option value="beharin"></option>
+                  <option value="brazil"></option>
+              </datalist>
+               <button type="submit" class="searchButton" onclick="inputIQFunction()">
+                 GO!
+              </button>
+             
+            </div>
+         </div>
+             </div>
+    </div>
+
+    <script type="text/javascript">
+        function inputIQFunction()
+                    {
+                 var userinput = document.getElementById("inputIQ").value;
+                      switch (userinput) {
+
+                         case 'usa':
+                         document.getElementById("image_X").style.display='none';
+                         document.getElementById("info").style.display='none';
+                         document.body.style.backgroundImage = "url('https://www.nationsonline.org/maps/USA-map.jpg')";
+                           break;
+
+                      case 'india':
+                    
+                      document.getElementById("image_X").style.display='none';
+                      document.getElementById("info").style.display='none';
+                      document.body.style.backgroundImage = "url('https://www.worldatlas.com/upload/ce/81/b5/artboard-1.png')";
+                       break;
+                      case 'australia':
+                      document.getElementById("image_X").style.display='none';
+                      document.getElementById("info").style.display='none';
+                      document.body.style.backgroundImage = "url('https://sapartners.com/wp-content/uploads/2016/08/map-of-Australia.gif')";
+                      break;
+
+                      case 'beharin':
+                      document.getElementById("image_X").style.display='none';
+                      document.getElementById("info").style.display='none';
+                      document.body.style.backgroundImage = "url('https://i.infopls.com/images/mbahrain.gif')";
+                      break;
+                      case 'brazil':
+                      document.getElementById("image_X").style.display='none';
+                      document.getElementById("info").style.display='none';
+                      document.body.style.backgroundImage = "url('http://www.cdc.gov/travel-static/yellowbook/2020/map_10-05-small.png')";
+                      break;
+                        default:
+                        document.body.style.backgroundImage = "url('')";
+                            break;
+                            }
+
+                           }
+
+
+                           function showCoords(event)
+                                       {
+                                       var x = event.clientX;
+                                       var y = event.clientY;
+                                     var coords = "X coordinate: " + x + ", Y coordinate: " + y;
+                                     document.getElementById("demo").innerHTML=coords;
+                                          }
+      
+       
+       
+       
+      
+       
+       </script>
+   
+    </body>
